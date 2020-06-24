@@ -18,8 +18,8 @@ class Parcial3BDhelper extends SQLiteOpenHelper {
     //String nombreBD = "Recetario";
     //int versionBD= 1;
 
-    public Parcial3BDhelper (Context context){
-        super(context,"Recetario",null,1);
+    public Parcial3BDhelper (Context context, String nombre, SQLiteDatabase.CursorFactory cursorFactory, int version){
+        super(context,nombre,cursorFactory, version);
     }
 
     @Override
