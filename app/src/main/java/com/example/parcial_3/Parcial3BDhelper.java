@@ -13,8 +13,7 @@ class Parcial3BDhelper extends SQLiteOpenHelper {
             "ingrediente4 TEXT,ingrediente5 TEXT,preparacion TEXT, imagen TEXT)";
     String tableGuardado = "CREATE TABLE recetas_guardadas(id_u_fkg INTEGER,id_r_fkg INTEGER, gusto TEXT, original TEXT)";
     String tableFavorito = "CREATE TABLE recetas_fav(id_u_fkf INTEGER,id_r_fkf INTEGER)";
-    //String nombreBD = "Recetario";
-    //int versionBD= 1;
+
 
     public Parcial3BDhelper (Context context, String nombre, SQLiteDatabase.CursorFactory cursorFactory, int version){
         super(context,nombre,cursorFactory, version);

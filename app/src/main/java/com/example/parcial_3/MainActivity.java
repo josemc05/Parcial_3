@@ -36,10 +36,9 @@ public void ingresarPrimerosDatos(){
         if (db != null){
             String[] campos = new String[] {"id_u"};
             Cursor c = db.query("usuarios",campos,null,null,null,null,null);
-            if (c.moveToFirst()) {
+            Toast.makeText(getApplicationContext(),"base abierta",Toast.LENGTH_SHORT).show();
+            if (c.moveToFirst()==false) {
                 do{
-                    int id = Integer.parseInt(c.getString(0));
-                    if(id==0 ){
                         Toast.makeText(getApplicationContext(),"no habia nada, vamos a ingresar datos",Toast.LENGTH_SHORT).show();
                         ContentValues values = new ContentValues();
                         values.put("nombre","jose");
@@ -47,11 +46,12 @@ public void ingresarPrimerosDatos(){
                         values.put("tipo_u","admin");
                         db.insert("usuarios",null,values);
                         ContentValues values2 = new ContentValues();
-                        values.put("nombre","pedro");
-                        values.put("password","456");
-                        values.put("tipo_u","consu");
-                        db.insert("usuarios",null,values2);}
+                        values2.put("nombre","pedro");
+                        values2.put("password","456");
+                        values2.put("tipo_u","consu");
+                        db.insert("usuarios",null,values2);
                 }while (c.moveToNext());
+                Toast.makeText(getApplicationContext(),"salio del if",Toast.LENGTH_SHORT).show();
                 c.close();
                 db.close();
             }}}
