@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ EditText producto, url, ingre1, ingre2, ingre3, ingre4, ingre5, pasos;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar);
+        InicializarControles();
     }
 
     public void InicializarControles() {
@@ -26,7 +28,7 @@ EditText producto, url, ingre1, ingre2, ingre3, ingre4, ingre5, pasos;
         ingre5 = (EditText) findViewById(R.id.ingre5);
         pasos = (EditText)findViewById(R.id.proce);
     }
-public void agregarReceta(){
+public void agregarReceta(View view){
     try{
         Parcial3BDhelper usuariosDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
         SQLiteDatabase db = usuariosDb.getWritableDatabase();

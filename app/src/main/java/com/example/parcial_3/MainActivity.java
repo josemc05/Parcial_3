@@ -79,7 +79,7 @@ public void ingresarPrimerosDatos(){
                         String tp_user = c.getString(3);
                         if ( usuario.equals(userbd) && passbd.equals(password)) {
                             if (tp_user.equals("admin")) {
-                                Intent i = new Intent(this, OpcionesActivity.class);
+                                Intent i = new Intent(this, AgregarActivity.class);
                                 i.putExtra("id", id);
                                 startActivity(i);
                             } else if(tp_user.equals("consu")){

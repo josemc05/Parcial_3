@@ -91,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Agregar Receta"
+                android:onClick="agregarReceta"
                />
         </LinearLayout>
     </LinearLayout>
