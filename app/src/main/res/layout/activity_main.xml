@@ -53,10 +53,6 @@
                 android:layout_weight="1"
                 android:text="Iniciar Sesion"
                 android:onClick="onClick"/>
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:id="@+id/imagen"/>
         </LinearLayout>
     </LinearLayout>
 

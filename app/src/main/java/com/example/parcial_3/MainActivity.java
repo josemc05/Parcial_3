@@ -31,12 +31,20 @@ ImageView imagen;
     public void InicializarControles(){
         user = (EditText) findViewById(R.id.user);
         pass = (EditText)findViewById(R.id.pass);
-        imagen = (ImageView) findViewById(R.id.imagen);
-
-        String uri ="drawable/"+"hamburguesa";
+        /*imagen = (ImageView) findViewById(R.id.imagen);
+       Parcial3BDhelper usuariosDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
+        SQLiteDatabase db = usuariosDb.getReadableDatabase();
+        String[] campos = new String[] {"imagen"};
+        Cursor c = db.query("recetas",campos,null,null,null,null,null);
+        String img="";
+        if (c.moveToFirst()) {
+            do {
+                img=c.getString(0);
+            } while (c.moveToNext());}
+        String uri ="drawable/"+img;
         int id = getResources().getIdentifier(uri , null, getPackageName());
         Drawable foto = ContextCompat.getDrawable(getApplicationContext(), id);
-        imagen.setImageDrawable(foto);
+        imagen.setImageDrawable(foto);*/
 
 
     }
@@ -90,11 +98,11 @@ public void ingresarPrimerosDatos(){
                         String tp_user = c.getString(3);
                         if ( usuario.equals(userbd) && passbd.equals(password)) {
                             if (tp_user.equals("admin")) {
-                                Intent i = new Intent(this, AgregarActivity.class);
+                                Intent i = new Intent(this, ListaRecetas_Activity.class);
                                 i.putExtra("id", id);
                                 startActivity(i);
                             } else if(tp_user.equals("consu")){
-                                Intent e = new Intent(this, OpcionesActivity.class);
+                                Intent e = new Intent(this, AgregarActivity.class);
                                 e.putExtra("id", id);
                                 startActivity(e);
                             }
