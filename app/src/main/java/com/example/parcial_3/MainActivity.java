@@ -1,20 +1,25 @@
 package com.example.parcial_3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 //Cuevitas estuvo aqui
 EditText user, pass;
+ImageView imagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,12 @@ EditText user, pass;
     public void InicializarControles(){
         user = (EditText) findViewById(R.id.user);
         pass = (EditText)findViewById(R.id.pass);
+        imagen = (ImageView) findViewById(R.id.imagen);
+
+        String uri ="drawable/"+"hamburguesa";
+        int id = getResources().getIdentifier(uri , null, getPackageName());
+        Drawable foto = ContextCompat.getDrawable(getApplicationContext(), id);
+        imagen.setImageDrawable(foto);
 
 
     }
