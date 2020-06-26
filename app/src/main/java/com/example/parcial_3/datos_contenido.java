@@ -3,7 +3,7 @@ package com.example.parcial_3;
 public class datos_contenido {
     private String titulo;
 
-    public datos_contenido(String titulo, String ingrediente1, String ingrediente2, String ingrediente3, String ingrediente4, String ingrediente5, String preparacion, int imagen) {
+    public datos_contenido(String titulo, String ingrediente1, String ingrediente2, String ingrediente3, String ingrediente4, String ingrediente5, String preparacion, String imagen) {
         this.titulo = titulo;
         this.ingrediente1 = ingrediente1;
         this.ingrediente2 = ingrediente2;
@@ -20,7 +20,7 @@ public class datos_contenido {
     private String ingrediente4;
     private String ingrediente5;
     private String preparacion;
-    private int imagen;
+    private String imagen;
 
     public String getTitulo() {
         return titulo;
@@ -78,11 +78,11 @@ public class datos_contenido {
         this.preparacion = preparacion;
     }
 
-    public int getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(int imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 

@@ -2,9 +2,12 @@ package com.example.parcial_3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridLayout;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -14,7 +17,7 @@ import java.util.List;
 
 public class ListaRectas extends AppCompatActivity {
     private ListView lvItems;
-
+    private List<datos_lista_pricipal> recetass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,7 @@ public class ListaRectas extends AppCompatActivity {
             Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(), "usuarios", null, 1);
             SQLiteDatabase db = recetasDb.getReadableDatabase();
 
-            List<datos_lista_pricipal> recetas = new ArrayList<>();
+            recetass = new ArrayList<>();
             String[] campos = new String[]{"producto", "imagen","id_r"};
 
             Cursor c = db.query("recetas", campos, null, null, null, null, null);
@@ -44,23 +47,29 @@ public class ListaRectas extends AppCompatActivity {
                     );
                     indiceRow = c.getInt(2);
 
-                    recetas.add(recipe);
+                    recetass.add(recipe);
                 } while (c.moveToNext());
             }
             i = indiceRow/2;
 
-            if (i%2==0 || i==1){
-                indiceRow = (int)i;
-
-            }else {
+            /*if (i % 2 != 0 && i != 1) {
                 i = i + 0.5;
-                indiceRow = (int)i;
             }
+            indiceRow = (int)i;
             GridLayout gridLayout = new GridLayout(this);
-            gridLayout.setRowCount(indiceRow);
+            gridLayout.setRowCount(indiceRow);*/
 
-            ListaAdaptador adapter = new ListaAdaptador(getApplicationContext(), recetas);
+            ListaAdaptador adapter = new ListaAdaptador(getApplicationContext(), recetass);
             lvItems.setAdapter(adapter);
+
+            lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent = new Intent(ListaRectas.this,Descripcion_Receta.class);
+                    intent.putExtra("ObjetoData",recetass.get(i));
+                    startActivity(intent);
+                }
+            });
 
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Errorcito: " + e.getMessage().toString(), Toast.LENGTH_SHORT).show();

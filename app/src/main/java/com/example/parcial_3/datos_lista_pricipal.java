@@ -1,6 +1,8 @@
 package com.example.parcial_3;
 
-public class datos_lista_pricipal {
+import java.io.Serializable;
+
+public class datos_lista_pricipal implements Serializable {
     private String titulo;
     private String ImagenReceta;
 
