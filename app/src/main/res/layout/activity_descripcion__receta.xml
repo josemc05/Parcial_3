@@ -81,6 +81,12 @@
             android:layout_marginRight="25dp"
             android:background="@drawable/dislike"
             />
+        <ImageButton
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/icono2"
+            />
 
     </LinearLayout>
 
