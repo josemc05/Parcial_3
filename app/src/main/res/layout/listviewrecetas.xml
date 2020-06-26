@@ -33,20 +33,19 @@
 
         </LinearLayout>
 
-        <ImageSwitcher
+        <ImageView
             android:id="@+id/botonimagen1"
 
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:onClick="onClick"
-            android:src="@drawable/hamburguesa" />
-        <ImageSwitcher
+
+             />
+        <ImageView
             android:id="@+id/botonimagen2"
 
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:onClick="onClick"
-            android:src="@drawable/hamburguesa" />
+             />
     </LinearLayout>
 
 </LinearLayout>
