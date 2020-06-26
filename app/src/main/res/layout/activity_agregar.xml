@@ -1,98 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AgregarActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Describa la Receta"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Producto"
-            android:textSize="20dp"
-            />
-        <EditText
-            android:id="@+id/producto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Queso Hamburguesa" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="URL de la Imagen a Mostrar"
-            android:textSize="20dp"
-            />
-        <EditText
-            android:id="@+id/url"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Direccion de la Imagen" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ingredientes"
-            android:textSize="20dp"
-            />
-        <EditText
-            android:id="@+id/ingre1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ingrediente1" />
-        <EditText
-            android:id="@+id/ingre2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ingrediente2" />
-        <EditText
-            android:id="@+id/ingre3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ingrediente3" />
-        <EditText
-            android:id="@+id/ingre4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ingrediente4" />
-        <EditText
-            android:id="@+id/ingre5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ingrediente5" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Procedimiento"
-            android:textSize="20dp"
-            />
-        <EditText
-            android:id="@+id/proce"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Describa la Preparacion" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AgregarActivity">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/btnlog"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Agregar Receta"
-                android:onClick="agregarReceta"
-               />
+                android:text="Describa la Receta"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Producto"
+                android:textSize="20dp"
+                />
+            <EditText
+                android:id="@+id/producto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Queso Hamburguesa" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="URL de la Imagen a Mostrar"
+                android:textSize="20dp"
+                />
+            <EditText
+                android:id="@+id/url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Direccion de la Imagen" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingredientes"
+                android:textSize="20dp"
+                />
+            <EditText
+                android:id="@+id/ingre1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrediente1" />
+            <EditText
+                android:id="@+id/ingre2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrediente2" />
+            <EditText
+                android:id="@+id/ingre3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrediente3" />
+            <EditText
+                android:id="@+id/ingre4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrediente4" />
+            <EditText
+                android:id="@+id/ingre5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrediente5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Procedimiento"
+                android:textSize="20dp"
+                />
+            <EditText
+                android:id="@+id/proce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Describa la Preparacion" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnlog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Agregar Receta"
+                    android:onClick="agregarReceta"
+                    />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
+

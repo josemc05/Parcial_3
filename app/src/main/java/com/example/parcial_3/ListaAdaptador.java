@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +48,7 @@ final datos_lista_pricipal item2 = (datos_lista_pricipal) getItem(position);
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext,Descripcion_Receta.class);
-                intent.putExtra("ObjetoData", (Parcelable) item2);
+                intent.putExtra("ObjetoData", (Serializable) item2);
                 mContext.startActivity(intent);
             }
         });

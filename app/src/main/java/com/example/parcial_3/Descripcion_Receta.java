@@ -36,7 +36,7 @@ public class Descripcion_Receta extends AppCompatActivity {
         txtDescripcionReceta = (TextView)findViewById(R.id.descripcionRecetaDescripcion);
         txtProcedimientos = (TextView)findViewById(R.id.procedimiento);
 
-        item = (datos_lista_pricipal)getIntent().getSerializableExtra("ObjetoData");
+        item = (datos_lista_pricipal)getIntent().getSerializableExtra("objetoData");
         nameProducto = item.getTitulo();
 
         GetAerialist();
