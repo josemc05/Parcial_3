@@ -52,7 +52,7 @@ public class Descripcion_Receta extends AppCompatActivity {
             String[] campos = new String[]{"producto", "imagen","ingrediente1","ingrediente2","ingrediente3","ingrediente4",
                                             "ingrediente5","preparacion"};
 
-            Cursor c = db.query("recetas", campos, "producto="+item.getTitulo(), null, null, null, null);
+            Cursor c = db.query("recetas", campos, "producto='"+item.getTitulo()+"'", null, null, null, null);
             c.moveToFirst();
 
                     txtTituloReceta.setText(c.getString(0));

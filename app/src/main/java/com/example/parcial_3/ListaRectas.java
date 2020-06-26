@@ -59,6 +59,7 @@ public class ListaRectas extends AppCompatActivity {
             Cursor c = db.query("recetas", campos, null, null, null, null, null);
             if (c.moveToFirst()) {
                 do {
+                    Toast.makeText(ListaRectas.this,"Producto"+c.getString(0),Toast.LENGTH_LONG).show();
                     datos_lista_pricipal recipe = new datos_lista_pricipal(
                             c.getString(0),
                             c.getString(1)
