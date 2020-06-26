@@ -62,15 +62,6 @@ public class ListaRectas extends AppCompatActivity {
             ListaAdaptador adapter = new ListaAdaptador(getApplicationContext(), recetass);
             lvItems.setAdapter(adapter);
 
-            lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent = new Intent(ListaRectas.this,Descripcion_Receta.class);
-                    intent.putExtra("ObjetoData",recetass.get(i));
-                    startActivity(intent);
-                }
-            });
-
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Errorcito: " + e.getMessage().toString(), Toast.LENGTH_SHORT).show();
         }

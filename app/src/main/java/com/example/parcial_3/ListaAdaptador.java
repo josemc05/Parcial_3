@@ -1,7 +1,9 @@
 package com.example.parcial_3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +29,9 @@ public class ListaAdaptador extends ArrayAdapter<datos_lista_pricipal> {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.listview_layouttemple, null);
+final datos_lista_pricipal item2 = (datos_lista_pricipal) getItem(position);
+
+        final View item = inflater.inflate(R.layout.listview_layouttemple, null);
 
         TextView lblTitulo = (TextView)item.findViewById(R.id.titleReceta);
         lblTitulo.setText(opciones.get(position).getTitulo());
@@ -38,6 +42,15 @@ public class ListaAdaptador extends ArrayAdapter<datos_lista_pricipal> {
         int id = mContext.getResources().getIdentifier(uri , null, mContext.getPackageName());
         Drawable foto = ContextCompat.getDrawable(mContext, id);
         imgFoto.setImageDrawable(foto);
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext,Descripcion_Receta.class);
+                intent.putExtra("ObjetoData", (Parcelable) item2);
+                mContext.startActivity(intent);
+            }
+        });
 
         //imgFoto.setImageResource(opciones.get(position).getImagenReceta());
 
