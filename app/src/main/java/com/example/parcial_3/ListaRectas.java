@@ -36,7 +36,7 @@ public class ListaRectas extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 datos_lista_pricipal data = arrayEntidad.get(i);
-                Toast.makeText(ListaRectas.this,"Name"+data.getTitulo(),Toast.LENGTH_LONG).show();
+                Toast.makeText(ListaRectas.this,"Name: "+data.getTitulo(),Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(ListaRectas.this,Descripcion_Receta.class);
                 intent.putExtra("objetoData",data.getTitulo());

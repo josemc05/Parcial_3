@@ -54,8 +54,8 @@ public class Descripcion_Receta extends AppCompatActivity {
                                             "ingrediente5","preparacion"};
 
             Cursor c = db.query("recetas", campos, "producto="+item, null, null, null, null);
-            if (c.moveToFirst()) {
-                do {
+            c.moveToFirst();
+
                     txtTituloReceta.setText(c.getString(0));
                     txtProcedimientos.setText(c.getString(7));
                     String uri ="drawable/"+c.getString(1);
@@ -68,10 +68,8 @@ public class Descripcion_Receta extends AppCompatActivity {
                             c.getString(2)+"\n"+c.getString(3)+"\n"+c.getString(4)+
                                     "\n"+c.getString(5)+"\n"+c.getString(6)
                     );
-
                     recetas.add(recipe);
-                } while (c.moveToNext());
-            }
+
 
             ingredienteAdaptador adapter = new ingredienteAdaptador(getApplicationContext(), recetas);
             lvItems.setAdapter(adapter);
