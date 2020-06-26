@@ -35,11 +35,9 @@ public class ListaRectas extends AppCompatActivity {
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                datos_lista_pricipal data = arrayEntidad.get(i);
-                Toast.makeText(ListaRectas.this,"Name: "+data.getTitulo(),Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(ListaRectas.this,Descripcion_Receta.class);
-                intent.putExtra("objetoData",data.getTitulo());
+                intent.putExtra("objetoData",arrayEntidad.get(i));
                 startActivity(intent);
             }
         });

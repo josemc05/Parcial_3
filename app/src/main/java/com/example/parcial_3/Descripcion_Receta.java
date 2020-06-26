@@ -19,7 +19,7 @@ import java.util.List;
 
 public class Descripcion_Receta extends AppCompatActivity {
     private ListView lvItems;
-    private String item;
+    private datos_lista_pricipal item;
     private ImageView imgReceta;
     private TextView txtTituloReceta;
     private TextView txtDescripcionReceta;
@@ -37,8 +37,7 @@ public class Descripcion_Receta extends AppCompatActivity {
         txtDescripcionReceta = (TextView)findViewById(R.id.descripcionRecetaDescripcion);
         txtProcedimientos = (TextView)findViewById(R.id.procedimiento);
 
-        Intent i = getIntent();
-        item = i.getStringExtra("objetoData");
+        item = (datos_lista_pricipal)getIntent().getSerializableExtra("objetoData");
 
         GetAerialist();
     }
@@ -53,7 +52,7 @@ public class Descripcion_Receta extends AppCompatActivity {
             String[] campos = new String[]{"producto", "imagen","ingrediente1","ingrediente2","ingrediente3","ingrediente4",
                                             "ingrediente5","preparacion"};
 
-            Cursor c = db.query("recetas", campos, "producto="+item, null, null, null, null);
+            Cursor c = db.query("recetas", campos, "producto="+item.getTitulo(), null, null, null, null);
             c.moveToFirst();
 
                     txtTituloReceta.setText(c.getString(0));
