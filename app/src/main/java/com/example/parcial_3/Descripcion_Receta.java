@@ -3,6 +3,7 @@ package com.example.parcial_3;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class Descripcion_Receta extends AppCompatActivity {
     private ListView lvItems;
-    private datos_lista_pricipal item;
+    private String item;
     private ImageView imgReceta;
     private TextView txtTituloReceta;
     private TextView txtDescripcionReceta;
@@ -36,8 +37,8 @@ public class Descripcion_Receta extends AppCompatActivity {
         txtDescripcionReceta = (TextView)findViewById(R.id.descripcionRecetaDescripcion);
         txtProcedimientos = (TextView)findViewById(R.id.procedimiento);
 
-        item = (datos_lista_pricipal)getIntent().getSerializableExtra("objetoData");
-        nameProducto = item.getTitulo();
+        Intent i = getIntent();
+        item = i.getStringExtra("objetoData");
 
         GetAerialist();
     }
@@ -52,7 +53,7 @@ public class Descripcion_Receta extends AppCompatActivity {
             String[] campos = new String[]{"producto", "imagen","ingrediente1","ingrediente2","ingrediente3","ingrediente4",
                                             "ingrediente5","preparacion"};
 
-            Cursor c = db.query("recetas", campos, "producto="+nameProducto, null, null, null, null);
+            Cursor c = db.query("recetas", campos, "producto="+item, null, null, null, null);
             if (c.moveToFirst()) {
                 do {
                     txtTituloReceta.setText(c.getString(0));

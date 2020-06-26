@@ -43,15 +43,6 @@ final datos_lista_pricipal item2 = (datos_lista_pricipal) getItem(position);
         Drawable foto = ContextCompat.getDrawable(mContext, id);
         imgFoto.setImageDrawable(foto);
 
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext,Descripcion_Receta.class);
-                intent.putExtra("ObjetoData", (Parcelable) item2);
-                mContext.startActivity(intent);
-            }
-        });
-
         //imgFoto.setImageResource(opciones.get(position).getImagenReceta());
 
         return(item);

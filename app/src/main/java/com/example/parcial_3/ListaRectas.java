@@ -17,17 +17,37 @@ import java.util.List;
 
 public class ListaRectas extends AppCompatActivity {
     private ListView lvItems;
-    private List<datos_lista_pricipal> recetass;
+
+    private ListaAdaptador adaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_rectas);
         lvItems = (ListView)findViewById(R.id.ListaRecetas);
-        GetAerialist();
+        final List<datos_lista_pricipal> arrayEntidad;
+
+        arrayEntidad = GetAerialist();
+
+        ListaAdaptador adapter = new ListaAdaptador(ListaRectas.this, arrayEntidad);
+        lvItems.setAdapter(adapter);
+
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                datos_lista_pricipal data = arrayEntidad.get(i);
+                Toast.makeText(ListaRectas.this,"Name"+data.getTitulo(),Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(ListaRectas.this,Descripcion_Receta.class);
+                intent.putExtra("objetoData",data.getTitulo());
+                startActivity(intent);
+            }
+        });
+
     }
 
-    private void GetAerialist() {
+    private ArrayList<datos_lista_pricipal> GetAerialist() {
+        ArrayList<datos_lista_pricipal> recetass = new ArrayList<>();
         try {
             int indiceRow = 0;
             double i;
@@ -35,7 +55,7 @@ public class ListaRectas extends AppCompatActivity {
             Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(), "usuarios", null, 1);
             SQLiteDatabase db = recetasDb.getReadableDatabase();
 
-            recetass = new ArrayList<>();
+
             String[] campos = new String[]{"producto", "imagen","id_r"};
 
             Cursor c = db.query("recetas", campos, null, null, null, null, null);
@@ -59,12 +79,12 @@ public class ListaRectas extends AppCompatActivity {
             GridLayout gridLayout = new GridLayout(this);
             gridLayout.setRowCount(indiceRow);*/
 
-            ListaAdaptador adapter = new ListaAdaptador(getApplicationContext(), recetass);
-            lvItems.setAdapter(adapter);
+
 
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Errorcito: " + e.getMessage().toString(), Toast.LENGTH_SHORT).show();
         }
+        return recetass;
 
     }
 }
