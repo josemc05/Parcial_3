@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridLayout;
@@ -17,7 +18,8 @@ import java.util.List;
 
 public class ListaRectas extends AppCompatActivity {
     private ListView lvItems;
-    private List<datos_lista_pricipal> recetass;
+    private ArrayList<datos_lista_pricipal> recetass;
+    private ListaAdaptador adap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,16 @@ public class ListaRectas extends AppCompatActivity {
         setContentView(R.layout.activity_lista_rectas);
         lvItems = (ListView)findViewById(R.id.ListaRecetas);
         GetAerialist();
+        adap= new ListaAdaptador(this,recetass);
+        lvItems.setAdapter(adap);
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(ListaRectas.this, Descripcion_Receta.class);
+                i.putExtra("datos", recetass.get(position));
+                startActivity(i);
+            }
+        });
     }
 
     private void GetAerialist() {
@@ -43,8 +55,8 @@ public class ListaRectas extends AppCompatActivity {
                 do {
                     datos_lista_pricipal recipe = new datos_lista_pricipal(
                             c.getString(0),
-                            c.getString(1)
-                    );
+                            c.getString(1),
+                    c.getInt(2));
                     indiceRow = c.getInt(2);
 
                     recetass.add(recipe);

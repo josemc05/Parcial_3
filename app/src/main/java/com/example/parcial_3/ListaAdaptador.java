@@ -29,7 +29,7 @@ public class ListaAdaptador extends ArrayAdapter<datos_lista_pricipal> {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-final datos_lista_pricipal item2 = (datos_lista_pricipal) getItem(position);
+        final datos_lista_pricipal item2 = (datos_lista_pricipal) getItem(position);
 
         final View item = inflater.inflate(R.layout.listview_layouttemple, null);
 
@@ -43,14 +43,7 @@ final datos_lista_pricipal item2 = (datos_lista_pricipal) getItem(position);
         Drawable foto = ContextCompat.getDrawable(mContext, id);
         imgFoto.setImageDrawable(foto);
 
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext,Descripcion_Receta.class);
-                intent.putExtra("ObjetoData", (Parcelable) item2);
-                mContext.startActivity(intent);
-            }
-        });
+
 
         //imgFoto.setImageResource(opciones.get(position).getImagenReceta());
 
