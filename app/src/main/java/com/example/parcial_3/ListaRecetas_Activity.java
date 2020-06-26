@@ -18,7 +18,7 @@ ListView lstSF;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_recetas_);
-        lstSF = (ListView)findViewById(R.id.listarecetass);
+        lstSF = (ListView)findViewById(R.id.ListaRecetas);
         loadlist();
     }
 
