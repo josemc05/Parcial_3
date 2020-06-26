@@ -1,12 +1,15 @@
 package com.example.parcial_3;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +32,15 @@ public class ListaAdaptador extends ArrayAdapter<datos_lista_pricipal> {
         TextView lblTitulo = (TextView)item.findViewById(R.id.titleReceta);
         lblTitulo.setText(opciones.get(position).getTitulo());
 
-        ImageView imgFoto = (ImageView) convertView.findViewById(R.id.ImagenReceta);
-        imgFoto.setImageResource(opciones.get(position).getImagenReceta());
+        ImageView imgFoto = (ImageView) item.findViewById(R.id.ImagenReceta);
+        String img=opciones.get(position).getImagenReceta();
+        String uri ="drawable/"+img;
+        int id = mContext.getResources().getIdentifier(uri , null, mContext.getPackageName());
+        Drawable foto = ContextCompat.getDrawable(mContext, id);
+        imgFoto.setImageDrawable(foto);
+
+        //imgFoto.setImageResource(opciones.get(position).getImagenReceta());
+
         return(item);
     }
 }

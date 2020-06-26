@@ -2,9 +2,9 @@ package com.example.parcial_3;
 
 public class datos_lista_pricipal {
     private String titulo;
-    private int ImagenReceta;
+    private String ImagenReceta;
 
-    public datos_lista_pricipal(String titulo, int imagenReceta) {
+    public datos_lista_pricipal(String titulo, String imagenReceta) {
         this.titulo = titulo;
         ImagenReceta = imagenReceta;
     }
@@ -17,11 +17,11 @@ public class datos_lista_pricipal {
         this.titulo = titulo;
     }
 
-    public int getImagenReceta() {
+    public String getImagenReceta() {
         return ImagenReceta;
     }
 
-    public void setImagenReceta(int imagenReceta) {
+    public void setImagenReceta(String imagenReceta) {
         ImagenReceta = imagenReceta;
     }
 }

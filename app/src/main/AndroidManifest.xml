@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ListaRecetas_Activity"></activity>
+        <activity android:name=".ListaRectas"></activity>
         <activity android:name=".OpcionesActivity" />
         <activity android:name=".AgregarActivity" />
         <activity android:name=".MainActivity">

@@ -40,7 +40,7 @@ public class ListaRectas extends AppCompatActivity {
                 do {
                     datos_lista_pricipal recipe = new datos_lista_pricipal(
                             c.getString(0),
-                            c.getInt(1)
+                            c.getString(1)
                     );
                     indiceRow = c.getInt(2);
 
@@ -49,7 +49,7 @@ public class ListaRectas extends AppCompatActivity {
             }
             i = indiceRow/2;
 
-            if (i%2==0){
+            if (i%2==0 || i==1){
                 indiceRow = (int)i;
 
             }else {
