@@ -12,7 +12,7 @@ import android.widget.Button;
 public class MenuOpciones extends AppCompatActivity {
     private String usuario;
     private String tipoUsuario;
-    private int idUsuario;
+    private String idUsuario;
     private Button botonAgregar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class MenuOpciones extends AppCompatActivity {
         Cursor c2 = db.query("usuarios",campos,"nombre='"+usuario+"'",null,null,null,null);
 
         c2.moveToFirst();
-        idUsuario = c2.getInt(0);
+        idUsuario = c2.getString(0);
         tipoUsuario = c2.getString(1);
     }
 
