@@ -5,11 +5,14 @@ import java.io.Serializable;
 public class datos_lista_pricipal implements Serializable {
     private String titulo;
     private String ImagenReceta;
+    private String id;
 
-    public datos_lista_pricipal(String titulo, String imagenReceta) {
+    public datos_lista_pricipal(String titulo, String imagenReceta, String ide) {
         this.titulo = titulo;
         ImagenReceta = imagenReceta;
+        id=ide;
     }
+
 
 
     public String getTitulo() {
@@ -26,5 +29,13 @@ public class datos_lista_pricipal implements Serializable {
 
     public void setImagenReceta(String imagenReceta) {
         ImagenReceta = imagenReceta;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -17,18 +17,22 @@ import java.util.List;
 
 public class ListaRectas extends AppCompatActivity {
     private ListView lvItems;
-
+    private String id_usuario;
     private ListaAdaptador adaptador;
+    Bundle parametro = new Bundle();
+    Bundle parametro1 = new Bundle();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_rectas);
         lvItems = (ListView)findViewById(R.id.ListaRecetas);
+        parametro1=this.getIntent().getExtras();
+        id_usuario=parametro1.getString("datos");
         final List<datos_lista_pricipal> arrayEntidad;
-
+        parametro.putString("datos", id_usuario);
         arrayEntidad = GetAerialist();
-
         ListaAdaptador adapter = new ListaAdaptador(ListaRectas.this, arrayEntidad);
         lvItems.setAdapter(adapter);
 
@@ -38,6 +42,7 @@ public class ListaRectas extends AppCompatActivity {
 
                 Intent intent = new Intent(ListaRectas.this,Descripcion_Receta.class);
                 intent.putExtra("objetoData",arrayEntidad.get(i));
+                intent.putExtras(parametro);
                 startActivity(intent);
             }
         });
@@ -62,8 +67,8 @@ public class ListaRectas extends AppCompatActivity {
                     Toast.makeText(ListaRectas.this,"Producto"+c.getString(0),Toast.LENGTH_LONG).show();
                     datos_lista_pricipal recipe = new datos_lista_pricipal(
                             c.getString(0),
-                            c.getString(1)
-                    );
+                            c.getString(1),
+                    c.getString(2));
                     indiceRow = c.getInt(2);
 
                     recetass.add(recipe);

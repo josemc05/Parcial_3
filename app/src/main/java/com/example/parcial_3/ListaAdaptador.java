@@ -42,9 +42,6 @@ final datos_lista_pricipal item2 = (datos_lista_pricipal) getItem(position);
         int id = mContext.getResources().getIdentifier(uri , null, mContext.getPackageName());
         Drawable foto = ContextCompat.getDrawable(mContext, id);
         imgFoto.setImageDrawable(foto);
-
-
-
         return(item);
     }
 }
