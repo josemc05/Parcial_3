@@ -19,13 +19,18 @@ public class ListaRecetas_Activity extends AppCompatActivity {
 ListView lstSF;
 ArrayList<recetas> arrayEntidad;
     Adapterlistview adapter;
+    Bundle parametro = new Bundle();
+    String userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_recetas_);
         lstSF = (ListView)findViewById(R.id.ListaRecetas);
-        arrayEntidad = loadlist();
+        parametro=this.getIntent().getExtras();
+        userid=parametro.getString("datos");
+        loadlist();
+        /*arrayEntidad = loadlist();
         adapter = new Adapterlistview(ListaRecetas_Activity.this, arrayEntidad);
         lstSF.setAdapter(adapter);
 
@@ -37,7 +42,7 @@ ArrayList<recetas> arrayEntidad;
                 intent.putExtra("objetoData", arrayEntidad.get(i));
                 startActivity(intent);
             }
-        });
+        });*/
 
     }
 
@@ -45,7 +50,7 @@ ArrayList<recetas> arrayEntidad;
         ArrayList<recetas> recetass = new ArrayList<recetas>();
         try {
             Intent i = getIntent();
-            String userid = i.getStringExtra("idUsuario");
+            String userid ;
             String recetaid="";
             Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
             SQLiteDatabase db = recetasDb.getReadableDatabase();

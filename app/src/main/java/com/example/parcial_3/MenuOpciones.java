@@ -14,6 +14,7 @@ public class MenuOpciones extends AppCompatActivity {
     private String tipoUsuario;
     private String idUsuario;
     private Button botonAgregar;
+    Bundle parametro = new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,17 +43,20 @@ public class MenuOpciones extends AppCompatActivity {
 
     public void RecetasDisponibles(View view){
         Intent i = new Intent(MenuOpciones.this,ListaRectas.class);
-        i.putExtra("idUsuario",idUsuario);
+        parametro.putString("datos", idUsuario);
+        i.putExtras(parametro);
         startActivity(i);
     }
     public void RecetasGuardadas(View view){
         Intent i = new Intent(MenuOpciones.this,ListaRecetas_Activity.class);
-        i.putExtra("idUsuario",idUsuario);
+        parametro.putString("datos", idUsuario);
+        i.putExtras(parametro);
         startActivity(i);
     }
     public void AgregarReceta(View view){
         Intent i = new Intent(MenuOpciones.this,AgregarActivity.class);
-        i.putExtra("idUsuario",idUsuario);
+        parametro.putString("datos", idUsuario);
+        i.putExtras(parametro);
         startActivity(i);
     }
 
