@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        >
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bton_ingresar_perfil"
+            android:onClick="RecetasDisponibles"
+            android:text="Recetas Disponibles"
+            android:textColor="@color/colorWhite"
+            />
+        <Button
+            android:layout_marginTop="60dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Recetas Guardadas"
+            android:onClick="RecetasGuardadas"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/bton_ingresar_perfil"
+            />
+        <Button
+            android:id="@+id/botonAgregarRecetas"
+            android:visibility="invisible"
+            android:layout_marginTop="60dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Agregar Receta"
+            android:onClick="AgregarReceta"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/bton_ingresar_perfil"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

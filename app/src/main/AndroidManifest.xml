@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListaRecetas_Activity"></activity>
-        <activity android:name=".ListaRectas"></activity>
-        <activity android:name=".Descripcion_Receta"></activity>
+        <activity android:name=".MenuOpciones"></activity>
+        <activity android:name=".ListaRecetas_Activity" />
+        <activity android:name=".ListaRectas" />
+        <activity android:name=".Descripcion_Receta" />
         <activity android:name=".OpcionesActivity" />
         <activity android:name=".AgregarActivity" />
         <activity android:name=".MainActivity">

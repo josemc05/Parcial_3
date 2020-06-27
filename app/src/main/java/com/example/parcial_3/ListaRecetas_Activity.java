@@ -28,6 +28,7 @@ ListView lstSF;
 
         arrayEntidad = loadlist();
 
+        
         Adapterlistview adapter = new Adapterlistview(ListaRecetas_Activity.this, arrayEntidad);
         lstSF.setAdapter(adapter);
 
