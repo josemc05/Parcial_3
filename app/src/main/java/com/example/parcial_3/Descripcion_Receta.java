@@ -41,7 +41,7 @@ public class Descripcion_Receta extends AppCompatActivity {
         parametro=this.getIntent().getExtras();
         item = (datos_lista_pricipal)getIntent().getSerializableExtra("objetoData");
         id_r=item.getId();
-        id_u=parametro.getString("datos");
+        id_u=parametro.getString("data");
         GetAerialist();
     }
 

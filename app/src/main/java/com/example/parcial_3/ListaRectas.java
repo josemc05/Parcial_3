@@ -29,7 +29,7 @@ public class ListaRectas extends AppCompatActivity {
         setContentView(R.layout.activity_lista_rectas);
         lvItems = (ListView)findViewById(R.id.ListaRecetas);
         parametro1=this.getIntent().getExtras();
-        id_usuario=parametro1.getString("datos");
+        id_usuario=parametro1.getString("idUsuario");
         final List<datos_lista_pricipal> arrayEntidad;
         parametro.putString("datos", id_usuario);
         arrayEntidad = GetAerialist();
