@@ -43,7 +43,7 @@ final datos_lista_pricipal item2 = (datos_lista_pricipal) getItem(position);
         Drawable foto = ContextCompat.getDrawable(mContext, id);
         imgFoto.setImageDrawable(foto);
 
-        //imgFoto.setImageResource(opciones.get(position).getImagenReceta());
+
 
         return(item);
     }

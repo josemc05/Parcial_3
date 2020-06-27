@@ -3,11 +3,13 @@ package com.example.parcial_3;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -24,7 +26,7 @@ public class Descripcion_Receta extends AppCompatActivity {
     private TextView txtTituloReceta;
     private TextView txtDescripcionReceta;
     private TextView txtProcedimientos;
-    private String nameProducto;
+    private String nameProducto, id_u, id_r;
 
 
     @Override
@@ -78,4 +80,42 @@ public class Descripcion_Receta extends AppCompatActivity {
         }
 
     }
+    //HAY QUE TRAER EL ID DEL USUARIO Y EL DE LA RECETA
+    //EL DE LA RECETA TRAERLO DESDE LA PANTALLA DE ANTERIOR A ESTA
+    //EL ID DEL USUARIO VIAJA A TRAVES DE LOS INTENTS DE CAMBIO DE PANTALLAS DESDE EL LOGIN
+    public void corazonclick(View view){
+        try {
+            Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
+            SQLiteDatabase db = recetasDb.getWritableDatabase();
+            String[] campos = new String[]{"id_u_fkf","id_r_fkf"};
+            Cursor c = db.query("recetas_fav",campos,null,null,null,null,null);
+            if (c.moveToFirst()==false || c.moveToFirst()) {
+                do{
+                    ContentValues values = new ContentValues();
+                    values.put("id_u_fkf",id_u);
+                    values.put("id_r_fkf",id_r);
+                    db.insert("recetas_fav",null,values);
+                }while (c.moveToNext());
+                c.close();
+                db.close();
+            }}
+        catch(Exception e){Toast.makeText(getApplicationContext(),"Zometin gruong is japenin tu mai fon: "+e.getMessage().toString(),Toast.LENGTH_SHORT).show();}
+    }
+    /*public void pulgarA(View view){
+        try {
+            Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
+            SQLiteDatabase db = recetasDb.getWritableDatabase();
+            String query="UPDATE recetas SET gusto = 'si';";
+            if (c.moveToFirst()==false || c.moveToFirst()) {
+                do{
+                    ContentValues values = new ContentValues();
+                    values.put("id_u_fkf",id_u);
+                    values.put("id_r_fkf",id_r);
+                    db.insert("recetas_fav",null,values);
+                }while (c.moveToNext());
+                c.close();
+                db.close();
+            }}
+        catch(Exception e){Toast.makeText(getApplicationContext(),"Zometin gruong is japenin tu mai fon: "+e.getMessage().toString(),Toast.LENGTH_SHORT).show();}
+    }*/
 }
