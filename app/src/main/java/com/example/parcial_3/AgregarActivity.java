@@ -45,7 +45,6 @@ public void agregarReceta(View view){
             values.put("imagen", url.getText().toString());
             db.insert("recetas", null, values);
             Toast.makeText(getApplicationContext(), "En teoria, todo se inserto bien", Toast.LENGTH_SHORT).show();
-
         }
     }catch (Exception e){
         Toast.makeText(getApplicationContext(),"Errorcito: "+e.getMessage().toString(),Toast.LENGTH_SHORT).show();

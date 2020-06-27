@@ -91,12 +91,13 @@ public class Descripcion_Receta extends AppCompatActivity {
             String[] campos = new String[]{"id_u_fkf","id_r_fkf"};
             Cursor c = db.query("recetas_fav",campos,null,null,null,null,null);
             if (c.moveToFirst()==false || c.moveToFirst()) {
-                do{
+                if (db != null) {
                     ContentValues values = new ContentValues();
                     values.put("id_u_fkf",id_u);
                     values.put("id_r_fkf",id_r);
                     db.insert("recetas_fav",null,values);
-                }while (c.moveToNext());
+                    Toast.makeText(getApplicationContext(),"Receta en Favoritos",Toast.LENGTH_SHORT).show();
+                }
                 c.close();
                 db.close();
             }}
@@ -109,20 +110,20 @@ public class Descripcion_Receta extends AppCompatActivity {
             String[] campos = new String[] {"id_u_fkg","id_r_fkg","gusto"};
             Cursor c = db.query("recetas_guardadas",campos,null,null,null,null,null);
             if (c.moveToFirst()==false || c.moveToFirst()) {
-                do{
+            if (db != null) {
                     if ((id_u.equals(c.getString(0)) && (id_r.equals(c.getString(1))))){
                     ContentValues values = new ContentValues();
                     values.put("gusto","si");
                     db.update("recetas_guardadas", values,"id_u_fkg='"+id_u+"'AND id_r_fkg='"+id_r+"'",null);
-                    db.insert("recetas_guardadas",null,values);}
+                        Toast.makeText(getApplicationContext(),"Le Gusta esta Receta",Toast.LENGTH_SHORT).show();}
                     else{
                         ContentValues values = new ContentValues();
                         values.put("id_u_fkg",id_u);
                         values.put("id_r_fkg",id_r);
                         values.put("gusto","si");
                         db.insert("recetas_guardadas",null,values);
-                    }
-                }while (c.moveToNext());
+                    Toast.makeText(getApplicationContext(),"Le Gusta esta Receta",Toast.LENGTH_SHORT).show();}
+                }
                 c.close();
                 db.close();
             }}
@@ -135,13 +136,12 @@ public class Descripcion_Receta extends AppCompatActivity {
             String[] campos = new String[] {"id_u_fkg","id_r_fkg","gusto"};
             Cursor c = db.query("recetas_guardadas",campos,null,null,null,null,null);
             if (c.moveToFirst()==false || c.moveToFirst()) {
-                do{
+                if (db != null) {
                     if ((id_u.equals(c.getString(0)) && (id_r.equals(c.getString(1))))){
                         ContentValues values = new ContentValues();
                         values.put("gusto","no");
                         db.update("recetas_guardadas", values,"id_u_fkg='"+id_u+"'AND id_r_fkg='"+id_r+"'",null);
-                        db.insert("recetas_guardadas",null,values);
-                        Toast.makeText(getApplicationContext(),"Le Gusta esta Receta",Toast.LENGTH_SHORT).show();}
+                        Toast.makeText(getApplicationContext(),"no Gusta esta Receta",Toast.LENGTH_SHORT).show();}
                     else{
                         ContentValues values = new ContentValues();
                         values.put("id_u_fkg",id_u);
@@ -149,10 +149,10 @@ public class Descripcion_Receta extends AppCompatActivity {
                         values.put("gusto","no");
                         db.insert("recetas_guardadas",null,values);
                         Toast.makeText(getApplicationContext(),"No Gusta esta Receta",Toast.LENGTH_SHORT).show();}
-                }while (c.moveToNext());
+                }}
                 c.close();
                 db.close();
-            }}
+            }
         catch(Exception e){Toast.makeText(getApplicationContext(),"Zometin gruong is japenin tu mai fon: "+e.getMessage().toString(),Toast.LENGTH_SHORT).show();}
     }
     public void guardar(View view){
@@ -162,13 +162,13 @@ public class Descripcion_Receta extends AppCompatActivity {
             String[] campos = new String[] {"id_u_fkg","id_r_fkg","gusto"};
             Cursor c = db.query("recetas_guardadas",campos,null,null,null,null,null);
             if (c.moveToFirst()==false || c.moveToFirst()) {
-                do{
+                if (db != null) {
                         ContentValues values = new ContentValues();
                         values.put("id_u_fkg",id_u);
                         values.put("id_r_fkg",id_r);
                         db.insert("recetas_guardadas",null,values);
                     Toast.makeText(getApplicationContext(),"Ha Guardado esta Receta",Toast.LENGTH_SHORT).show();
-                }while (c.moveToNext());
+                }
                 c.close();
                 db.close();
             }}
