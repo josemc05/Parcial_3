@@ -17,16 +17,19 @@ import java.util.List;
 
 public class ListaRecetas_Activity extends AppCompatActivity {
 ListView lstSF;
-ArrayList<recetas> arrayEntidad;
-    Adapterlistview adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_recetas_);
         lstSF = (ListView)findViewById(R.id.ListaRecetas);
+
+        final List<recetas> arrayEntidad;
+
         arrayEntidad = loadlist();
-        adapter = new Adapterlistview(ListaRecetas_Activity.this, arrayEntidad);
+
+        
+        Adapterlistview adapter = new Adapterlistview(ListaRecetas_Activity.this, arrayEntidad);
         lstSF.setAdapter(adapter);
 
         lstSF.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -38,14 +41,14 @@ ArrayList<recetas> arrayEntidad;
                 startActivity(intent);
             }
         });
-
+        loadlist();
     }
 
     public ArrayList<recetas> loadlist(){
         ArrayList<recetas> recetass = new ArrayList<recetas>();
         try {
             Intent i = getIntent();
-            String userid = i.getStringExtra("idUsuario");
+            String userid = i.getStringExtra("id");
             String recetaid="";
             Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
             SQLiteDatabase db = recetasDb.getReadableDatabase();
