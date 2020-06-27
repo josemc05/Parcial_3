@@ -101,7 +101,7 @@ public class Descripcion_Receta extends AppCompatActivity {
             }}
         catch(Exception e){Toast.makeText(getApplicationContext(),"Zometin gruong is japenin tu mai fon: "+e.getMessage().toString(),Toast.LENGTH_SHORT).show();}
     }
-    public void pulgarA(View view){
+    public void pulgarAr(View view){
         try {
             Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
             SQLiteDatabase db = recetasDb.getWritableDatabase();
@@ -121,6 +121,50 @@ public class Descripcion_Receta extends AppCompatActivity {
                         values.put("gusto","si");
                         db.insert("recetas_fav",null,values);
                     }
+                }while (c.moveToNext());
+                c.close();
+                db.close();
+            }}
+        catch(Exception e){Toast.makeText(getApplicationContext(),"Zometin gruong is japenin tu mai fon: "+e.getMessage().toString(),Toast.LENGTH_SHORT).show();}
+    }
+    public void pulgarAb(View view){
+        try {
+            Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
+            SQLiteDatabase db = recetasDb.getWritableDatabase();
+            String[] campos = new String[] {"id_u_fkf","id_r_fkf","gusto"};
+            Cursor c = db.query("recetas_guardadas",campos,null,null,null,null,null);
+            if (c.moveToFirst()==false || c.moveToFirst()) {
+                do{
+                    if ((id_u.equals(c.getString(0)) && (id_r.equals(c.getString(1))))){
+                        ContentValues values = new ContentValues();
+                        values.put("gusto","no");
+                        db.update("recetas_fav", values,"id_u_fkf='"+id_u+"'AND id_r_fkf='"+id_r+"'",null);
+                        db.insert("recetas_fav",null,values);}
+                    else{
+                        ContentValues values = new ContentValues();
+                        values.put("id_u_fkf",id_u);
+                        values.put("id_r_fkf",id_r);
+                        values.put("gusto","no");
+                        db.insert("recetas_fav",null,values);
+                    }
+                }while (c.moveToNext());
+                c.close();
+                db.close();
+            }}
+        catch(Exception e){Toast.makeText(getApplicationContext(),"Zometin gruong is japenin tu mai fon: "+e.getMessage().toString(),Toast.LENGTH_SHORT).show();}
+    }
+    public void guardar(View view){
+        try {
+            Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
+            SQLiteDatabase db = recetasDb.getWritableDatabase();
+            String[] campos = new String[] {"id_u_fkf","id_r_fkf","gusto"};
+            Cursor c = db.query("recetas_guardadas",campos,null,null,null,null,null);
+            if (c.moveToFirst()==false || c.moveToFirst()) {
+                do{
+                        ContentValues values = new ContentValues();
+                        values.put("id_u_fkf",id_u);
+                        values.put("id_r_fkf",id_r);
+                        db.insert("recetas_fav",null,values);
                 }while (c.moveToNext());
                 c.close();
                 db.close();
