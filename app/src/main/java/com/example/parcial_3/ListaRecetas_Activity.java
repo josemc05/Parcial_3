@@ -20,7 +20,7 @@ ListView lstSF;
 ArrayList<recetas> arrayEntidad;
     Adapterlistview adapter;
     Bundle parametro = new Bundle();
-    String userid;
+    String userid="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,22 +49,22 @@ ArrayList<recetas> arrayEntidad;
     public ArrayList<recetas> loadlist(){
         ArrayList<recetas> recetass = new ArrayList<recetas>();
         try {
-            Intent i = getIntent();
-            String userid ;
             String recetaid="";
             Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
             SQLiteDatabase db = recetasDb.getReadableDatabase();
+            String gusto="";
 
-
-            String[] idrecetasG = new String[]{"id_r_fkg", "gusto"};
+            String[] idrecetasG = new String[]{"id_r_fkg"};
             String[] campos = new String[] {"producto","imagen"};
 
             Cursor c2 = db.query("recetas_guardadas",idrecetasG,"id_u_fkg='"+userid+"'",null,null,null,null);
             if (c2.moveToFirst()){
                 do {
                     recetaid=c2.getString(0);
-                    String gusto=c2.getString(1);
+                    //String gusto=c2.getString(1);
                     Cursor c = db.query("recetas",campos,"id_r='"+recetaid+"'",null,null,null,null);
+                    c.moveToFirst();
+
                     String producto=c.getString(0);
                     String imagen=c.getString(1);
                     recetas recipe = new recetas(

@@ -100,11 +100,13 @@ public void ingresarPrimerosDatos(){
                             if (tp_user.equals("admin")) {
                                 Intent i = new Intent(this, MenuOpciones.class);
                                 parametro.putString("datos", userbd);
+                                parametro.putString("datos2", id);
                                 i.putExtras(parametro);
                                 startActivity(i);
                             } else if(tp_user.equals("consu")){
                                 Intent e = new Intent(this, MenuOpciones.class);
                                 parametro.putString("datos", userbd);
+                                parametro.putString("datos2", id);
                                 e.putExtras(parametro);
                                 startActivity(e);
                             }
