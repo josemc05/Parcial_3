@@ -64,24 +64,28 @@
         >
 
         <ImageButton
+            android:id="@+id/botonFavorito"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/corazon"
             />
         <ImageButton
+            android:id="@+id/botonLike"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/like"
             />
         <ImageButton
+            android:id="@+id/botondisLike"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/dislike"
             />
         <ImageButton
+            android:id="@+id/botonAgregar"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginRight="25dp"

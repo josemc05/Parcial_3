@@ -1,17 +1,17 @@
 package com.example.parcial_3;
 
-class recetas {
+import java.io.Serializable;
+
+class recetas implements Serializable {
 
     private String produc;
     private String gusto;
-    private String original;
     private String imagen;
 
-    public recetas (String producto, String img, String gust, String ori){
+    public recetas (String producto, String img, String gust){
         produc=producto;
         imagen=img;
         gusto=gust;
-        original=ori;
     }
 
 
@@ -28,9 +28,5 @@ class recetas {
 
     public String getGusto() {
         return gusto;
-    }
-
-    public String getOriginal() {
-        return original;
     }
 }

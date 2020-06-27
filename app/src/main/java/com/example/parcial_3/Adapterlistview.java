@@ -59,7 +59,7 @@ class Adapterlistview extends ArrayAdapter<recetas> {
         }
 
         //Establecer el imageView/ImageSwitcher/ImageButton 2
-        ImageView imageno = (ImageView) item.findViewById(R.id.botonimagen2);
+        /*ImageView imageno = (ImageView) item.findViewById(R.id.botonimagen2);
         String imagen2 = receta.get(position).getOriginal();
         if(imagen2.equals("si")){
             String uri3 ="drawable/original";
@@ -72,7 +72,7 @@ class Adapterlistview extends ArrayAdapter<recetas> {
             int id4 = context1.getResources().getIdentifier(uri4 , null, context1.getPackageName());
             Drawable foto2 = ContextCompat.getDrawable(context1, id4);
             imageno.setImageDrawable(foto2);
-        }
+        }*/
         return(item);
     }
 }
