@@ -67,23 +67,27 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginRight="25dp"
+            android:onClick="corazonclick"
             android:background="@drawable/corazon"
             />
         <ImageButton
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginRight="25dp"
+            android:onClick="pulgarAr"
             android:background="@drawable/like"
             />
         <ImageButton
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginRight="25dp"
+            android:onClick="pulgarAb"
             android:background="@drawable/dislike"
             />
         <ImageButton
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:onClick="guardar"
             android:layout_marginRight="25dp"
             android:background="@drawable/icono2"
             />
