@@ -22,11 +22,13 @@ import java.util.List;
 public class Descripcion_Receta extends AppCompatActivity {
     private ListView lvItems;
     private datos_lista_pricipal item;
+    private recetas item2;
     private ImageView imgReceta;
     private TextView txtTituloReceta;
     private TextView txtDescripcionReceta;
     private TextView txtProcedimientos;
     private String nameProducto, id_u, id_r;
+    private String numeroActivity;
     Bundle parametro = new Bundle();
 
     @Override
@@ -38,10 +40,15 @@ public class Descripcion_Receta extends AppCompatActivity {
         txtTituloReceta = (TextView)findViewById(R.id.TituloRecetaDescripcion);
         txtDescripcionReceta = (TextView)findViewById(R.id.descripcionRecetaDescripcion);
         txtProcedimientos = (TextView)findViewById(R.id.procedimiento);
-        parametro=this.getIntent().getExtras();
-        item = (datos_lista_pricipal)getIntent().getSerializableExtra("objetoData");
-        id_r=item.getId();
-        id_u=parametro.getString("data");
+            parametro=this.getIntent().getExtras();
+            item = (datos_lista_pricipal)getIntent().getSerializableExtra("objetoData");
+            id_r=item.getId();
+            id_u=parametro.getString("datos");
+
+
+
+
+
         GetAerialist();
     }
 

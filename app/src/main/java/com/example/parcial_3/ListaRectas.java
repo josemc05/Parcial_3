@@ -29,7 +29,7 @@ public class ListaRectas extends AppCompatActivity {
         setContentView(R.layout.activity_lista_rectas);
         lvItems = (ListView)findViewById(R.id.ListaRecetas);
         parametro1=this.getIntent().getExtras();
-        id_usuario=parametro1.getString("idUsuario");
+        id_usuario=parametro1.getString("datos");
         final List<datos_lista_pricipal> arrayEntidad;
         parametro.putString("datos", id_usuario);
         arrayEntidad = GetAerialist();
@@ -43,6 +43,7 @@ public class ListaRectas extends AppCompatActivity {
                 Intent intent = new Intent(ListaRectas.this,Descripcion_Receta.class);
                 intent.putExtra("objetoData",arrayEntidad.get(i));
                 intent.putExtras(parametro);
+                intent.putExtra("numActivity","0");
                 startActivity(intent);
             }
         });
