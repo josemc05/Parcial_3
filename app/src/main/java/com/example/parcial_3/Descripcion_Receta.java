@@ -106,21 +106,21 @@ public class Descripcion_Receta extends AppCompatActivity {
         try {
             Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
             SQLiteDatabase db = recetasDb.getWritableDatabase();
-            String[] campos = new String[] {"id_u_fkf","id_r_fkf","gusto"};
+            String[] campos = new String[] {"id_u_fkg","id_r_fkg","gusto"};
             Cursor c = db.query("recetas_guardadas",campos,null,null,null,null,null);
             if (c.moveToFirst()==false || c.moveToFirst()) {
                 do{
                     if ((id_u.equals(c.getString(0)) && (id_r.equals(c.getString(1))))){
                     ContentValues values = new ContentValues();
                     values.put("gusto","si");
-                    db.update("recetas_fav", values,"id_u_fkf='"+id_u+"'AND id_r_fkf='"+id_r+"'",null);
-                    db.insert("recetas_fav",null,values);}
+                    db.update("recetas_guardadas", values,"id_u_fkg='"+id_u+"'AND id_r_fkg='"+id_r+"'",null);
+                    db.insert("recetas_guardadas",null,values);}
                     else{
                         ContentValues values = new ContentValues();
-                        values.put("id_u_fkf",id_u);
-                        values.put("id_r_fkf",id_r);
+                        values.put("id_u_fkg",id_u);
+                        values.put("id_r_fkg",id_r);
                         values.put("gusto","si");
-                        db.insert("recetas_fav",null,values);
+                        db.insert("recetas_guardadas",null,values);
                     }
                 }while (c.moveToNext());
                 c.close();
@@ -132,22 +132,23 @@ public class Descripcion_Receta extends AppCompatActivity {
         try {
             Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
             SQLiteDatabase db = recetasDb.getWritableDatabase();
-            String[] campos = new String[] {"id_u_fkf","id_r_fkf","gusto"};
+            String[] campos = new String[] {"id_u_fkg","id_r_fkg","gusto"};
             Cursor c = db.query("recetas_guardadas",campos,null,null,null,null,null);
             if (c.moveToFirst()==false || c.moveToFirst()) {
                 do{
                     if ((id_u.equals(c.getString(0)) && (id_r.equals(c.getString(1))))){
                         ContentValues values = new ContentValues();
                         values.put("gusto","no");
-                        db.update("recetas_fav", values,"id_u_fkf='"+id_u+"'AND id_r_fkf='"+id_r+"'",null);
-                        db.insert("recetas_fav",null,values);}
+                        db.update("recetas_guardadas", values,"id_u_fkg='"+id_u+"'AND id_r_fkg='"+id_r+"'",null);
+                        db.insert("recetas_guardadas",null,values);
+                        Toast.makeText(getApplicationContext(),"Le Gusta esta Receta",Toast.LENGTH_SHORT).show();}
                     else{
                         ContentValues values = new ContentValues();
-                        values.put("id_u_fkf",id_u);
-                        values.put("id_r_fkf",id_r);
+                        values.put("id_u_fkg",id_u);
+                        values.put("id_r_fkg",id_r);
                         values.put("gusto","no");
-                        db.insert("recetas_fav",null,values);
-                    }
+                        db.insert("recetas_guardadas",null,values);
+                        Toast.makeText(getApplicationContext(),"No Gusta esta Receta",Toast.LENGTH_SHORT).show();}
                 }while (c.moveToNext());
                 c.close();
                 db.close();
@@ -158,14 +159,15 @@ public class Descripcion_Receta extends AppCompatActivity {
         try {
             Parcial3BDhelper recetasDb = new Parcial3BDhelper(getApplicationContext(),"usuarios",null,1);
             SQLiteDatabase db = recetasDb.getWritableDatabase();
-            String[] campos = new String[] {"id_u_fkf","id_r_fkf","gusto"};
+            String[] campos = new String[] {"id_u_fkg","id_r_fkg","gusto"};
             Cursor c = db.query("recetas_guardadas",campos,null,null,null,null,null);
             if (c.moveToFirst()==false || c.moveToFirst()) {
                 do{
                         ContentValues values = new ContentValues();
-                        values.put("id_u_fkf",id_u);
-                        values.put("id_r_fkf",id_r);
-                        db.insert("recetas_fav",null,values);
+                        values.put("id_u_fkg",id_u);
+                        values.put("id_r_fkg",id_r);
+                        db.insert("recetas_guardadas",null,values);
+                    Toast.makeText(getApplicationContext(),"Ha Guardado esta Receta",Toast.LENGTH_SHORT).show();
                 }while (c.moveToNext());
                 c.close();
                 db.close();

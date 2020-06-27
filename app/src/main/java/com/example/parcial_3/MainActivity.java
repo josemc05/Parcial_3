@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 //Cuevitas estuvo aqui
 EditText user, pass;
 ImageView imagen;
-
+    Bundle parametro = new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,12 +98,14 @@ public void ingresarPrimerosDatos(){
                         String tp_user = c.getString(3);
                         if ( usuario.equals(userbd) && passbd.equals(password)) {
                             if (tp_user.equals("admin")) {
-                                Intent i = new Intent(this, ListaRectas.class);
-                                i.putExtra("id", id);
+                                Intent i = new Intent(this, AgregarActivity.class);
+                                parametro.putString("datos", userbd);
+                                i.putExtras(parametro);
                                 startActivity(i);
                             } else if(tp_user.equals("consu")){
-                                Intent e = new Intent(this, AgregarActivity.class);
-                                e.putExtra("id", id);
+                                Intent e = new Intent(this, ListaRectas.class);
+                                parametro.putString("datos", userbd);
+                                e.putExtras(parametro);
                                 startActivity(e);
                             }
 //
